@@ -88,9 +88,9 @@
 
 \subsection{\textbf{Expected performance}}
 \begin{itemize}
-\item The Rotation sensor measures the motor rotations with the accuracy of +/- one degree for one rotation(360 degree). Hence the accuracy in distance traveled for one rotation will be +/- 0.48mm. 
+\item The Rotation sensor measures the motor rotations with the accuracy of +/- one degree for one rotation(360 degree). Hence the accuracy in distance traveled for one rotation will be +/- 0.05 cm. 
 \item Reference: LEGO NXT: Features \& Limitations.
-\item Assuming experiment distance = 704mm. Expected accuracy is $ \pm 2$ and expected precision 704mm is$ \pm 2$mm.
+\item Assuming experiment distance = 70.4 cm. Expected accuracy is $ \pm 2$ and expected precision 70.4 cm is$ \pm 0.2$cm.
 \end{itemize}
 
 \subsubsection{Reasons}
@@ -105,7 +105,14 @@
 \item The same points were used as the starting points while repeating the experiment.
 \item The position of the back wheel was also kept constant by drawing a line and using the same line as reference for future run of experiments.
 \item The position of the back wheel impacted the outcome of the experiment as a small deviation from the reference line would result in a considerable deviation of the outcome.
-\item The theta values were calculated by drawing a perpendicular to the line joining the two observed end points and calculating the angle using the formula $tan^{-1}(\frac{y}{x})$.
+
+\item The theta values were calculated by drawing a perpendicular to the line joining the two observed end points and calculating the angle using the formula $tan^{-1}(\frac{y}{x})$. As shown in the below figure.
+\begin{figure}[H]
+\centering	
+\includegraphics[width=1.2\linewidth]{theta_calc.jpeg}
+\label{fig:theta_calc}
+\caption{Finding out $\theta$ for robot orientation}
+\end{figure}
 \item Lego NXT 2.0 software was used to program the robot with the following parameters.\\
 No. of rotations = 4\\ 
 Power = 40
@@ -113,7 +120,7 @@ Power = 40
 \item The observed data has been recorded in the ".csv" format.
 \item There was no pre-processing of data required as no outliers were detected.
 \item Graph has been plotted for all three motions. \\
-Note : All x,y measurements are in inches
+Note : All x,y measurements are in centimetres (cm)
 \subsubsection{Straight}
 \begin{figure}[H]
 \centering	
@@ -139,16 +146,17 @@ In the above graph, it can be observed that 'X' points fit a gaussian distributi
 % 	\caption{\color{blue}Box plot for (X, Y) points in straight line}
 %   \end{figure}
 \begin{itemize}
-\item $ Range (x,y) =([23.77-28.01],[67.50-68.01]) $
-\item $ Mean (x, y) = 25.81,67.54$
-\item $ \sigma (x, y)= 1.01, 0.12 $
+\item $ Range (x,y) =([23.8-28.1],[67.5-68.1]) $
+\item $ Mean (x, y) = 25.8,67.5$
+\item $ \sigma (x, y)= 1.1, 0.1 $
+\item $ Precision (x, y)= 25.8 \pm 1.1, 67.5 \pm 0.1  $
 \item $ Accuracy (x,y) = x \pm0.9  , y \pm0.1 $  
 \end{itemize}
 
 \subsubsection{Right}
 \begin{figure}[H]
 \centering	
-\includegraphics[width=1.2\linewidth]{right_i}
+\includegraphics[width=1.2\linewidth]{right_cm}
 \label{fig:right}
 \caption{20 observations of right arc motion}
 \end{figure}
@@ -169,20 +177,21 @@ In the above plot it can be observed that the distribution of X and Y positions 
 %   \end{figure}
 
 \begin{itemize}
-\item $ Range (x,y) =([37.50-40.00],[58.01-59.78])  $
-\item $ Mean (x, y) = 38.95,58.77$
+\item $ Range (x,y) =([37.5-40.0],[58.0-59.8])  $
+\item $ Mean (x, y) = 38.9,58.8$
+\item $ Precision (x, y)= 38.9 \pm 0.8, 58.8 \pm 0.6 $
 \item $ Accuracy (x,y) = x \pm0.5 , y \pm0.5  $ 
-\item $ \sigma (x, y)= 0.81, 0.61 $
-\item $ Mean(\theta) = 40.58 degree$
+\item $ \sigma (x, y)= 0.8, 0.6 $
+\item $ Mean(\theta) = 40.6 degree$
 \item $ Accuracy (\theta)= \theta \pm5  deg $
-\item $ \sigma = 1.09 deg$
-\item $ range (\theta) = 38.83 - 43.33 $
+\item $ \sigma = 1.1 deg$
+\item $ range (\theta) = 38.8 - 43.3 $
 \end{itemize}
 
 \subsubsection{Left}
 \begin{figure}[H]
 \centering	
-\includegraphics[width=1.2\linewidth]{left_i}
+\includegraphics[width=1.2\linewidth]{left_cm}
 \label{fig:sub1}
 \caption{20 iteration of moving left}
 \end{figure}
@@ -202,14 +211,15 @@ In the above figure it can be observed that the (X, Y) points obtained for left 
 % 	\caption{\color{blue}Box plot for 20 iterations of left arc motion}
 %   \end{figure}
 \begin{itemize}
-\item $ Range (x,y) =([7.75-12.16],[55.63-57.50])  $
-\item $ Mean (x, y) = 10.05,56.89$
+\item $ Range (x,y) =([7.8-12.2],[55.6-57.5])  $
+\item $ Mean (x, y) = 10.1,56.9$
+\item $ Precision (x, y)= 10.1 \pm 2.0, 56.9 \pm 1.5 $
 \item $ Accuracy (x,y) = x \pm0.5 , y \pm0.5  $ 
-\item $ \sigma (x, y)= 0.97, 0.47 $
-\item $ Mean(\theta) = 45.71 degree$
+\item $ \sigma (x, y)= 1.0, 0.5 $
+\item $ Mean(\theta) = 45.7 degree$
 \item $ Accuracy (\theta)= \theta 7\pm  deg $
-\item $ \sigma = 1.32 deg$
-\item $ range (\theta) = 43.18 - 48.27 $
+\item $ \sigma = 1.3 deg$
+\item $ range (\theta) = 43.2 - 48.3 $
 \end{itemize}
 \end{itemize}
 
