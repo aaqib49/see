@@ -147,11 +147,11 @@
 		% 	\caption{\color{blue}Box plot for (X, Y) points in straight line}
 		%   \end{figure}
 		\begin{itemize}
-			\item \textcolor{blue}{$ Range (x,y) =([23.8-28.1],[67.5-68.1]) $}
-			\item \textcolor{blue}{$ Mean (x, y) = 25.8,67.5$}
-			\item \textcolor{blue}{$ \sigma (x, y)= 1.1, 0.1 $}
-			\item \textcolor{blue}{$ Precision (x, y)= 25.8 \pm 1.1, 67.5 \pm 0.1  $}
-			\item \textcolor{blue}{$ Accuracy (x,y) = x \pm0.9  , y \pm0.1 $}  
+			\item $ Range (x,y) =([23.8-28.1],[67.5-68.1]) $
+			\item $ Mean (x, y) = 25.8,67.5$
+			\item $ \sigma (x, y)= 1.1, 0.1 $
+			\item $ Precision (x, y)= 25.8 \pm 1.1, 67.5 \pm 0.1  $
+			\item $ Accuracy (x,y) = x \pm0.9  , y \pm0.1 $  
 		\end{itemize}
 		
 		\subsubsection{Right}
@@ -177,7 +177,7 @@
 		% 	\caption{\color{blue}20 iteration distribution plot}
 		%   \end{figure}
 		
-		\textcolor{blue}{\begin{itemize}
+		\begin{itemize}
 				\item $ Range (x,y) =([37.5-40.0],[58.0-59.8])  $
 				\item $ Mean (x, y) = 38.9,58.8$
 				\item $ Precision (x, y)= 38.9 \pm 0.8, 58.8 \pm 0.6 $
@@ -187,7 +187,7 @@
 				\item $ Accuracy (\theta)= \theta \pm5  deg $
 				\item $ \sigma = 1.1 deg$
 				\item $ range (\theta) = 38.8 - 43.3 $
-			\end{itemize}}
+			\end{itemize}
 			
 			\subsubsection{Left}
 			\begin{figure}[H]
@@ -211,7 +211,7 @@
 			% 		\label{fig:sub1}
 			% 	\caption{\color{blue}Box plot for 20 iterations of left arc motion}
 			%   \end{figure}
-			\textcolor{blue}{\begin{itemize}
+			\begin{itemize}
 					\item $ Range (x,y) =([7.8-12.2],[55.6-57.5])  $
 					\item $ Mean (x, y) = 10.1,56.9$
 					\item $ Precision (x, y)= 10.1 \pm 2.0, 56.9 \pm 1.5 $
@@ -221,7 +221,7 @@
 					\item $ Accuracy (\theta)= \theta 7\pm  deg $
 					\item $ \sigma = 1.3 deg$
 					\item $ range (\theta) = 43.2 - 48.3 $
-				\end{itemize}}
+				\end{itemize}
 			\end{itemize}
 			
 			% \subsection{Straight Motion}
@@ -254,33 +254,33 @@
 			
 			\begin{itemize}
 				\item 2.3 The chi-square test indicates that the observed data is a normal distribution.
-				\begin{lstlisting}[language=Python]
-				In [9]: ks , p = stats.normaltest(straight_xy)
-				alpha = 1e-3
-				# null hypothesis: x comes from normal distribution
-				if p.all() < alpha: 
-				print("The null hypothesis can be rejected")
-				else:
-				print("The null hypothesis cannot be rejected")
-				
-				[Out]: The null hypothesis cannot be rejected
-				
-				In [10]: ks , p = stats.normaltest(right_xy)
-				alpha = 1e-3
-				if p.all() < alpha: 
-				print("The null hypothesis can be rejected")
-				else:
-				print("The null hypothesis cannot be rejected")
-				[Out]: The null hypothesis cannot be rejected
-				
-				In [11]: ks , p = stats.normaltest(left_xy)
-				alpha = 1e-3
-				if p.all() < alpha: 
-				print("The null hypothesis can be rejected")
-				else:
-				print("The null hypothesis cannot be rejected")
-				[Out]: The null hypothesis cannot be rejected
-				\end{lstlisting}
+\begin{lstlisting}[language=Python]
+In [9]: ks , p = stats.normaltest(straight_xy)
+alpha = 1e-3
+# null hypothesis: x comes from normal distribution
+if p.all() < alpha: 
+print("The null hypothesis can be rejected")
+else:
+print("The null hypothesis cannot be rejected")
+
+[Out]: The null hypothesis cannot be rejected
+
+In [10]: ks , p = stats.normaltest(right_xy)
+alpha = 1e-3
+if p.all() < alpha: 
+print("The null hypothesis can be rejected")
+else:
+print("The null hypothesis cannot be rejected")
+[Out]: The null hypothesis cannot be rejected
+
+In [11]: ks , p = stats.normaltest(left_xy)
+alpha = 1e-3
+if p.all() < alpha: 
+print("The null hypothesis can be rejected")
+else:
+print("The null hypothesis cannot be rejected")
+[Out]: The null hypothesis cannot be rejected
+\end{lstlisting}
 				
 				\item Deliverable 2.2: The functions used for plotting are from the seaborn library and use a kernel density method to obtain a 2-D density plot of the x and y coordinates. 
 				\item Deliverable 2.5:\\
