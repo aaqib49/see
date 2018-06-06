@@ -290,49 +290,52 @@ In [11]: ks , p = stats.normaltest(left_xy)
 \newpage
 \section{Calibrating an Optical Tracking System}
 \subsection{Setup for camera calibration }
-\begin{enumerate}
+\begin{itemize}
 \item The camera calibration process is done on a checkerboard (calibration tool).
-\item Installed the \textit{MATLAB support package for USB webcam} for camera calibration.
-\item The camera calibration toolbox for MATLAB is downloaded.
-\item The webcam (Microsoft Lifecam) is connected to the laptop. The connectivity is checked by running \textit{webcam list} command in MATLAB, which shows the list of all webcams connected to PC.
+\item The \textit{MATLAB support package for USB webcam} for camera calibration is installed.
+\item The camera calibration toolbox for MATLAB is installed.
+\item The webcam (Microsoft Lifecam) is connected to the laptop and the connectivity is checked by running \textit{webcam list} command in MATLAB, which shows the list of all webcams connected to PC.
 \item The webcam is mounted on a static paper punch, while capturing the images.
-\item \textcolor{red}{The Auto-focus is turned \textit{off} by running the following command in MATLAB}, \\ 
+\item The Auto-focus is turned \textit{off} by running the following command in MATLAB,
+\begin{lstlisting}
+cam.FocalMode = manual
+\end{lstlisting}
 \item The images of checkerboard are captured from different perspectives (different position and orientation in the camera's field of view). A total of 20 images are captured and saved for the calibration process.
-\end{enumerate}
+\end{itemize}
 
 \subsection{Estimation of number of images}
 \begin{itemize}
 \item Since the object in the world is 3-dimensional and the captured images are 2D (co-planar), we loose one dimension. In order to regain the actual dimensionality during the calibration, various number of images are captured in different positions and orientations. 
-\item As a rule of thumb, 20-40 image pairs is quite enough for the process. For our calibration we have captured 20 images in different position and orientations. 
+\item As a rule of thumb, 20-40 images is quite enough for the process. For our calibration we have captured 20 images in different position and orientations. 
 \item The idea behind the capturing enough images is to cover the field of view, and to have a good distribution of 3D orientations of the board. 
 \end{itemize}
 
 
 \subsection{Description of the camera parameters}
 After the calibration, the list of parameters obtained are of two types,
-\begin{enumerate}
+\begin{itemize}
 \item Intrinsic parameters
 \begin{itemize}
-\item \textbf{Focal length:} Distance between the lens and the image sensor when the object is in focus, usually stated in millimeters. The focal length in pixels is stored in the 2x1 vector $fc$. \\ \textit{Calibration result:} $[648.5545, 648.4]$
-\item \textbf{Principal point:} A point at the intersection of the optical axis and the image plane. The principal point coordinates are stored in the 2x1 vector $cc$. \\ \textit{Calibration result:} $415.7172$
-\item \textbf{Skew coefficient:} Defines the angle between x and y pixels axes and is stored in $alpha_c$ \\ \textit{Calibration result:} $0$
-\item \textbf{Radial Distortions:} Symmetric distortion caused by the lens due to imperfections in curvature when the lens was ground. \\ \textit{Calibration result:} $[-0.0187, 0.118]$
-\item \textcolor{red}{The image distortion coefficients (radial and tangential distortions) are stored in the 5x1 vector $kc$. \\ \textit{Calibration result:} Tangential distortion = $[0,0]$}
+\item \textbf{Focal length:} Distance between the lens and the image sensor when the object is in focus, usually stated in millimeters. The focal length in pixels is stored in the 2x1 vector $fc$. 
+\item \textbf{Principal point:} A point at the intersection of the optical axis and the image plane. The principal point coordinates are stored in the 2x1 vector $cc$.
+\item \textbf{Skew coefficient:} Defines the angle between x and y pixels axes and is stored in $alpha_c$
+\item \textbf{Radial Distortions:} Symmetric distortion caused by the lens due to imperfections in curvature when the lens was ground.
+\item \textcolor{red}{The image distortion coefficients (radial and tangential distortions) are stored in the 5x1 vector $kc$.}
 \end{itemize}
-\item \textcolor{red}{Extrinsic parameters}
+\item Extrinsic parameters
 \begin{itemize}
-\item \textbf{Rotational Vectors:} Vector describing the rotation of camera plane with respect to the world frame. \\ \textit{Calibration result:} $3x3x20$ double.
-\item \textbf{Translational vectors:} Vector describing the translation of camera plane with respect to the world frame. \\ \textit{Calibration result:} $20x3$ double.
+\item \textbf{Rotational Vectors:} Vector describing the rotation of camera plane with respect to the world frame.
+\item \textbf{Translational vectors:} Vector describing the translation of camera plane with respect to the world frame.
 \end{itemize}
-\end{enumerate}
+\end{itemize}
 
 \subsection{Possible problems or error sources that can disturb the calibration process}
-\begin{enumerate}
+\begin{itemize}
 \item If the naming conventions of the images are different, then the calibration process gives error.
 \item The computer running the calibration toolbox must have enough RAM(128 MB or less). If this condition is not met, then it gives \textit{OUT OF MEMORY} error.
 \item Enough number of images must be provided to get better calibration results.
 \item The images captured with same orientations will not provide enough inputs for the toolbox to calibrate efficiently.
-\end{enumerate}
+\end{itemize}
 
 \subsection{Image poses used for calibration}
 \begin{figure}[H]
