@@ -90,7 +90,8 @@
 	\begin{itemize}
 		\item The Rotation sensor measures the motor rotations with the accuracy of +/- one degree for one rotation(360 degree). Hence the accuracy in distance traveled for one rotation will be +/- 0.05 cm. 
 		\item Reference: LEGO NXT: Features \& Limitations.
-		\item Assuming experiment distance = 70.4 cm. Expected accuracy is $ \pm 2$ and expected precision 70.4 cm is$ \pm 0.2$cm.
+		\item Assuming experiment distance = 70.4 cm.
+		\item Expected accuracy is $ \pm 2$ and expected precision is 70.4$ \pm 0.2$cm.
 	\end{itemize}
 	
 	\subsubsection{Reasons}
@@ -290,8 +291,10 @@
 				
 				\textbf{Left:} The readings obtained for X coordinates appear to have low precision and accuracy, whereas the Y coordinates appear to be precise with a low accuracy.
 				\textcolor{blue}{\item \textbf{Comparison of Actual performance with expected:} \begin{itemize} \item The expected distance to be traveled was 70.4 cm.
-						\item The actual distance traveled was calculated by applying distance formula on initial and end point, which is equal to 67.5 cm.
-						\item Error = 2.9 cm
+						\item The mean actual distance travelled was calculated by applying distance formula on initial and end points, which is equal to 67.5 cm.
+						\item Estimated error = 2 cm
+						\item Actual error = 2.9 cm
+						\item The difference in the actual and expected error can be due to systematic or/and random errors.
 					\end{itemize}}
 				\end{itemize} 
 				\newpage
@@ -305,7 +308,7 @@
 					\item The webcam is mounted on a static paper punch, while capturing the images.
 					\item The Auto-focus is turned \textit{off} by running the following command in MATLAB,
 					\begin{lstlisting}
-					cam.FocalMode = manual
+cam.FocalMode = manual
 					\end{lstlisting}
 					\item The images of checkerboard are captured from different perspectives (different position and orientation in the camera's field of view). A total of 20 images are captured and saved for the calibration process.
 				\end{itemize}
@@ -319,16 +322,16 @@
 				
 				
 				\subsection{Description of the camera parameters}
-				After the calibration, the list of parameters obtained are of two types,
+				After the calibration, the list of parameters obtained are of two types.
 				\begin{itemize}
-					\item Intrinsic parameters
+					\item \textbf{Intrinsic parameters}
 					\begin{itemize}
 						\item \textbf{Focal length:} Distance between the lens and the image sensor when the object is in focus, usually stated in millimeters. The focal length in pixels is stored in the 2x1 vector $fc$. 
 						\item \textbf{Principal point:} A point at the intersection of the optical axis and the image plane. The principal point coordinates are stored in the 2x1 vector $cc$.
 						\item \textbf{Skew coefficient:} Defines the angle between x and y pixels axes and is stored in $alpha_c$
 						\item \textbf{Radial Distortions:} Symmetric distortion caused by the lens due to imperfections in curvature when the lens was ground.
 					\end{itemize}
-					\item Extrinsic parameters
+					\item \textbf{Extrinsic parameters}
 					\begin{itemize}
 						\item \textbf{Rotational Vectors:} Vector describing the rotation of camera plane with respect to the world frame.
 						\item \textbf{Translational vectors:} Vector describing the translation of camera plane with respect to the world frame.
@@ -423,6 +426,8 @@
 				2.8109e-04 & 3.5275e-04
 				\end{bmatrix}
 				\]
+				\subsubsection{Extrinsic errors}
+				They are available in the \textit{estimationerrors.mat} file
 				
 				
 				\subsection{Arguments for which camera model best fits} 
