@@ -1,6 +1,0 @@
-\BOOKMARK [1][-]{section.1}{Camera calibration setup}{}% 1
-\BOOKMARK [1][-]{section.2}{Estimation of number of images}{}% 2
-\BOOKMARK [1][-]{section.3}{Description of the camera parameters}{}% 3
-\BOOKMARK [1][-]{section.4}{Possible problems or error sources that can disturb the calibration process}{}% 4
-\BOOKMARK [1][-]{section.5}{Describe the images poses used for calibration and report the found camera parameters including any error estimates \(where applicable\)}{}% 5
-\BOOKMARK [1][-]{section.6}{Arguments for which camera model best fits}{}% 6
