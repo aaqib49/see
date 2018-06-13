@@ -306,17 +306,18 @@ print("The null hypothesis cannot be rejected")
 					\item The camera calibration toolbox for MATLAB is installed.
 					\item The webcam (Microsoft Lifecam) is connected to the laptop and the connectivity is checked by running \textit{webcam list} command in MATLAB, which shows the list of all webcams connected to PC.
 					\item The webcam is mounted on a static paper punch, while capturing the images.
-					\item The Auto-focus is turned \textit{off} by running the following command in MATLAB,
+					\item The Auto-focus is turned on and the camera is made to adjust to the distance of the checkerboard.
+					\item Then the Auto-focus is turned \textit{off} by running the following command in MATLAB,
 					\begin{lstlisting}
 cam.FocalMode = manual
 					\end{lstlisting}
-					\item The images of checkerboard are captured from different perspectives (different position and orientation in the camera's field of view). A total of 20 images are captured and saved for the calibration process.
+					\item The images of checkerboard are captured from different perspectives (different position and orientation in the camera's field of view). A total of 25 images are captured and saved for the calibration process.
 				\end{itemize}
 				
 				\subsection{Estimation of number of images}
 				\begin{itemize}
 					\item Since the object in the world is 3-dimensional and the captured images are 2D (co-planar), we loose one dimension. In order to regain the actual dimensionality during the calibration, various number of images are captured in different positions and orientations. 
-					\item As a rule of thumb, 20-40 images is quite enough for the process. For our calibration we have captured 20 images in different position and orientations. 
+					\item As a rule of thumb, 20-40 images is quite enough for the process. For our calibration we have captured 25 images in different position and orientations. 
 					\item The idea behind the capturing enough images is to cover the field of view, and to have a good distribution of 3D orientations of the board. 
 				\end{itemize}
 				
@@ -362,68 +363,68 @@ cam.FocalMode = manual
 				\[ 
 				Intrinsic Matrix =
 				\begin{bmatrix}
-				648.7381 & 0 & 0 \\
-				-0.5603 & 648.5722 & 0 \\
-				417.6238 & 285.6146 & 1 \\
+				650.1601 & 0 & 0 \\
+				-0.4441 & 649.8506 & 0 \\
+				417.1918 & 288.0535 & 1 \\
 				\end{bmatrix}
 				\]
 				\[ 
 				Focal Length =
 				\begin{bmatrix}
-				648.7381 & 648.5722
+				650.1601 & 649.8506
 				\end{bmatrix}
 				\]
 				\[ 
 				Principal point =
 				\begin{bmatrix}
-				417.6238 & 285.6146
+				417.1918 & 288.0535
 				\end{bmatrix}
 				\]
 				\[ 
-				Skew = -0.5603
+				Skew = -0.4441
 				\]
 				\[
 				Radial distortion = 
 				\begin{bmatrix}
-				-0.0183 & 0.1165
+				-0.0215 & 0.1424
 				\end{bmatrix}
 				\]
 				\[ 
 				Tangential Distortion = 
 				\begin{bmatrix}
-				-0.0016 & 9.2118e-04
+				-9.82e-04 & 0.0010
 				\end{bmatrix}
 				\]
 				\[ 
-				Mean projection error = 0.1516
+				Mean projection error = 0.1031
 				\]
 				\subsection{Estimation errors}
 				\subsubsection{Intrinsic errors}
 				\[
-				Skew error = 0.1173
+				Skew error = 0.0641
 				\]
 				\[
 				Focal length error = 
 				\begin{bmatrix}
-				0.3475 & 0.3245
+				0.3066 & 0.2922
 				\end{bmatrix}
 				\]
 				\[
 				Principal point error = 
 				\begin{bmatrix}
-				0.6292 & 0.5130
+				0.4705 & 0.3823
 				\end{bmatrix}
 				\]
 				\[
 				Radial distortion error = 
 				\begin{bmatrix}
-				0.0028 & 0.0134
+				0.0025 & 0.0167
 				\end{bmatrix}
 				\]
 				\[
 				Tangential distortion error
 				\begin{bmatrix}
-				2.8109e-04 & 3.5275e-04
+				2.1093e-04 & 2.5468e-04
 				\end{bmatrix}
 				\]
 				\subsubsection{Extrinsic errors}
