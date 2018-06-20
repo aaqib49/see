@@ -298,7 +298,7 @@ print("The null hypothesis cannot be rejected")
 					\end{itemize}}
 				\end{itemize} 
 				\newpage
-				\section{Calibrating an Optical Tracking System}
+				\section{Calibration of an Optical Tracking System}
 				\subsection{Setup for camera calibration }
 				\begin{itemize}
 					\item The camera calibration process is done on a checkerboard (calibration tool).
@@ -435,6 +435,80 @@ cam.FocalMode = manual
 				If the lens distortions are really too severe (for fish-eye lenses for example), the simple guiding tool based on a single distortion coefficient kc may not be sufficient to provide good enough initial guesses for the corner locations. then corner extraction has to be done manually.
 				
 				\newpage
+				\section{Measurement of the accuracy and precision of a KUKA youBot arm}
+				\subsection{Description of the experiment}
+				\begin{itemize}
+				\item The experiment involves a KUKA youBot arm performing different pick and place tasks.
+				\item Three objects with different masses are to be placed in three different poses.
+				\item The object poses (x, y, θ) are determined by tracking ArUco markers that are placed on top of the objects by an external vision system (Microsoft LifeCam) placed above the arm's workspace.
+				\item The experiment is performed 20 times for each object-pose combination resulting in a total of 180 experimental trials.
+				\end{itemize}
+				\subsection{Observations}
+				\subsubsection{Sources of error}
+				\begin{itemize}
+				\item Changes in the position of the small/ medium object while being placed on the table.
+				\item Changes in the position of the object while the arm retracts after placing the object.
+				\item Small shakes in the table can cause changes in the pose readings.
+				\end{itemize}
+				\subsubsection{Pose filtering procedure}
+				\begin{itemize}
+				\item The pose of the object is calculated 50 times by the youbot and the average of all the values is recorded for each trial run.
+				\item On average, 3 outliers were detected for every trial run.
+				\end{itemize}
+				\subsubsection{Distribution plots}
+				\begin{itemize}
+				\item For the large mass object
+				\begin{itemize}
+				\item For straight line motion
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.5]{straight_large_x.png}
+				\caption{Distribution of X coordinates for straight line motion of large object}
+				\end{figure}
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.5]{straight_large_y.png}
+				\caption{Distribution of Y coordinates for straight line motion of large object}
+				\end{figure}
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.5]{straight_large_o.png}
+				\caption{Distribution of orientations for straight line motion of large object}
+				\end{figure}
+				\item For left arc motion
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.5]{left_large_x.png}
+				\caption{Distribution of orientations for left arc motion of large object}
+				\end{figure}
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.5]{left_large_y.png}
+				\caption{Distribution of orientations for left arc motion of large object}
+				\end{figure}
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.5]{left_large_o.png}
+				\caption{Distribution of orientations for left arc motion of large object}
+				\end{figure}
+				\item For right arc motion
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.5]{right_large_x.png}
+				\caption{Distribution of orientations for right arc motion of large object}
+				\end{figure}
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.5]{right_large_y.png}
+				\caption{Distribution of orientations for right arc motion of large object}
+				\end{figure}
+				\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.5]{right_large_o.png}
+				\caption{Distribution of orientations for right arc motion of large object}
+				\end{figure}
+				\end{itemize}
+				\end{itemize}
 				\section{Appendix}
 				\subsection{Softwares used}
 				\begin{itemize}
