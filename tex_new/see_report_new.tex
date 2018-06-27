@@ -17,6 +17,8 @@
 	\newpage
 	\listoffigures
 	\newpage
+	\listoftables
+	\newpage
 	\section{Experiment 1: Manual Motion Observation}
 	\textbf{Aim:} Manually measure the observable pose variation for three different constant velocity motions(Straight line, an arc to the left and an arc to the right) of LEGO NXT differential drive robot.
 	
@@ -163,6 +165,12 @@
 			\caption{Normal distribution for right motion (X in cm)}
 		\end{figure}
 		
+		\begin{figure}[H]
+			\centering	
+			\includegraphics[width=0.8\linewidth]{old_rightmotion_kdeplot_Y}
+			\label{fig:straightG}
+			\caption{Normal distribution for right motion (Y in cm)}
+		\end{figure}
 %		In the above graph, it can be observed that 'X' points fit a gaussian distribution, whereas 'Y' points does not fit any distribution, since they are mostly precise and accurate.
 		%   \begin{figure}[H]
 		% 	\centering	
@@ -489,101 +497,146 @@ cam.FocalMode = manual
 				\end{itemize}
 				\subsubsection{Pose filtering procedure}
 				\begin{itemize}
+				\item For every experiment the final pose is obtained by taking an average of 50 readings.
 				\item For the obtained pose values in each experiment we have fitted a Gaussian distribution.
 				\item It can be seen that there are some outliers in the data.
 				\item We have removed these outliers by using Chebyshev algorithm and the final data is plotted.
 				\item On average, 3 outliers were detected for the entire experiment.
 				\end{itemize}
+				\subsection{Scattered plots}
+				\begin{enumerate}
+				\item \textbf{Experiment: Small Marker}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[scale=0.7]{small}	
+					\caption{Scattered plot of small marker experiment}
+				\end{figure}
+				\newpage
+				\item \textbf{Experiment: Medium Marker}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[scale=0.7]{medium}	
+					\caption{Scattered plot of medium marker experiment}
+				\end{figure}
+				\newpage
+				\item \textbf{Experiment: Large Marker}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[scale=0.7]{large}	
+					\caption{Scattered plot of large marker experiment}
+				\end{figure}
+				\end{enumerate}
+				\newpage
 				\subsubsection{Distribution plots}
-				\begin{itemize}
-				\item For small mass object
+				\begin{enumerate}
+				\item Experiment: Pick and place of Small marker - Straight
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.52]{str_small}
-					\caption{Plots before the removal of outliers for the poses of the straight motion with object of small mass}			
+					\includegraphics[scale=0.6]{small-str}	
+					\caption{Distribution plot for Small marker-Straight}
 				\end{figure}
+				\newpage
+				\item Experiment: Pick and place of Small marker - Left
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{str_o_small}
-					\caption{Plots before the removal of outliers for the orientation of the straight motion with object of small mass}			
+					\includegraphics[scale=0.6]{small-left}	
+					\caption{Distribution plot for Small marker-Left}
 				\end{figure}
+				\newpage
+				\item Experiment: Pick and place of Small marker - Right
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.52]{small_str_left}
-					\caption{Plots before the removal of outliers for the poses of the left motion with object of small mass}			
+					\includegraphics[scale=0.6]{small-right}
+					\caption{Distribution plot for Small marker-Right}	
 				\end{figure}
+				\newpage
+				\item Experiment: Pick and place of Medium marker - Straight
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{small_left_o}
-					\caption{Normal distribution of orientation for placing marker left}			
+					\includegraphics[scale=0.6]{medium-straight}
+					\caption{Distribution plot for medium marker-Straight}	
 				\end{figure}
+				\newpage
+				\item Experiment: Pick and place of Medium marker - Left
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{small_right}
-					\caption{Plots before the removal of outliers for the poses of the right motion with object of small mass}			
+					\includegraphics[scale=0.6]{medium-left}
+					\caption{Distribution plot for medium marker-Left}	
 				\end{figure}
+				\newpage
+				\item Experiment: Pick and place of Medium marker - Right
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{small_right_y_}
-					\caption{Plots before the removal of outliers for the poses of the right motion with object of small mass}			
+					\includegraphics[scale=0.6]{medium-right}
+					\caption{Distribution plot for medium marker-Right}	
 				\end{figure}
+				
+				\newpage
+				\item Experiment: Pick and place of large marker - Straight
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{small_right_y_}
-					\caption{Plots before the removal of outliers for the poses of the right motion with object of small mass}			
+					\includegraphics[scale=0.6]{large-str}	
+					\caption{Distribution plot for large marker-Straight}
 				\end{figure}
-				\item For the large mass object
-				\begin{itemize}
-				\item For straight line motion
+				\newpage
+				\item Experiment: Pick and place of large marker - Left
 				\begin{figure}[H]
-				\centering
-				\includegraphics[scale=0.5]{straight_large_x.png}
-				\caption{Distribution of X coordinates for straight line motion of large object}
+					\centering
+					\includegraphics[scale=0.6]{large-left}
+					\caption{Distribution plot for large marker-Left}	
 				\end{figure}
+				\newpage
+				\item Experiment: Pick and place of large marker - Right
 				\begin{figure}[H]
-				\centering
-				\includegraphics[scale=0.5]{straight_large_y.png}
-				\caption{Distribution of Y coordinates for straight line motion of large object}
+					\centering
+					\includegraphics[scale=0.6]{large-right}
+					\caption{Distribution plot for large marker-Right}	
 				\end{figure}
-				\begin{figure}[H]
-				\centering
-				\includegraphics[scale=0.5]{straight_large_o.png}
-				\caption{Distribution of orientations for straight line motion of large object}
-				\end{figure}
-				\item For left arc motion
-				\begin{figure}[H]
-				\centering
-				\includegraphics[scale=0.5]{left_large_x.png}
-				\caption{Distribution of orientations for left arc motion of large object}
-				\end{figure}
-				\begin{figure}[H]
-				\centering
-				\includegraphics[scale=0.5]{left_large_y.png}
-				\caption{Distribution of orientations for left arc motion of large object}
-				\end{figure}
-				\begin{figure}[H]
-				\centering
-				\includegraphics[scale=0.5]{left_large_o.png}
-				\caption{Distribution of orientations for left arc motion of large object}
-				\end{figure}
-				\item For right arc motion
-				\begin{figure}[H]
-				\centering
-				\includegraphics[scale=0.5]{right_large_x.png}
-				\caption{Distribution of orientations for right arc motion of large object}
-				\end{figure}
-				\begin{figure}[H]
-				\centering
-				\includegraphics[scale=0.5]{right_large_y.png}
-				\caption{Distribution of orientations for right arc motion of large object}
-				\end{figure}
-				\begin{figure}[H]
-				\centering
-				\includegraphics[scale=0.5]{right_large_o.png}
-				\caption{Distribution of orientations for right arc motion of large object}
-				\end{figure}
-				\end{itemize}
-				\end{itemize}
+				\end{enumerate}
+				\newpage
+				\subsubsection{Accuracy and Precision}
+				\begin{table}[h]
+					\centering
+					\caption{Accuracy}
+					\label{accuracy}
+					\begin{tabular}{|l|l|l|l|}
+						\hline
+						Small marker/Accuracy   & X       & Y       & $\theta$ \\ \hline
+						Straight                & -0.0481 & -0.0527 & -0.2234     \\ \hline
+						Left                    & -0.0691 & -0.0842 & -0.1283     \\ \hline
+						Right                   & -0.0370 & -0.0601 & 0.0243      \\ \hline
+						Medium marker/ Accuracy & X       & Y       & $\theta$ \\ \hline
+						Straight                & -0.0144 & 0.0005  & 0.1668      \\ \hline
+						Left                    & 0.0158  & 0.0296  & 0.3889      \\ \hline
+						Right                   & -0.0080 & 0.0109  & 0.2070      \\ \hline
+						Large marker/ Accuracy  & X       & Y       & $\theta$ \\ \hline
+						Straight                & 0.0125  & 0.0551  & -0.0523     \\ \hline
+						Left                    & 0.0501  & 0.0586  & -0.1707     \\ \hline
+						Right                   & 0.0111  & 0.0444  & 0.3372      \\ \hline
+					\end{tabular}
+				\end{table}
+				
+				\begin{table}[h]
+					\centering
+					\caption{Precision}
+					\label{precision}
+					\begin{tabular}{|l|l|l|l|}
+						\hline
+						Small marker/Precision   & X       & Y       & $\theta$ \\ \hline
+						Straight                & -91.28 $\pm$ 2.22 & -75.28 $\pm$ 0.73 & 1.86 $\pm$ 0.73  \\ \hline
+						Left                    & -48.84 $\pm$ 0.99 & -49.14 $\pm$ 0.78 & 1.00 $\pm$0.17    \\ \hline
+						Right                   & -116.44$\pm$1.61 & -75.09 $\pm$ 0.96 & 1.73 $\pm$0.12      \\ \hline
+						Medium marker/ Precision & X       & Y       & $\theta$ \\ \hline
+						Straight                & -88.15$\pm$1.68 & -71.27$\pm$1.09  & 1.24$\pm$1.12      \\ \hline
+						Left                    & -44.76$\pm$1.95  & -43.70$\pm$1.14  & 0.63$\pm$0.64      \\ \hline
+						Right                   & -113.04$\pm$2.54 & -69.81$\pm$1.64  & 1.47$\pm$0.60      \\ \hline
+						Large marker/ Precision  & X       & Y       & $\theta$ \\ \hline
+						Straight                & -85.81$\pm$3.07  & -67.58$\pm$ 10.84  & 1.53$\pm$0.42    \\ \hline
+						Left                    & -43.30$\pm$1.98  & -42.50$\pm$1.60  & 1.06$\pm$0.56    \\ \hline
+						Right                   & -110.90$\pm$2.84  & -67.58$\pm$1.00  & 1.33$\pm$0.56      \\ \hline
+					\end{tabular}
+				\end{table}
+				\newpage
 				\section{Appendix}
 				\subsection{Softwares used}
 				\begin{itemize}
