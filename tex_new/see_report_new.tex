@@ -471,7 +471,7 @@ cam.FocalMode = manual
 				\section{Measurement of the accuracy and precision of a KUKA youBot arm}
 				\subsection{Description of the experiment}
 				\begin{itemize}
-				\item The experiment involves a KUKA youBot arm performing different pick and place tasks.
+				\item The experiment involves a \textbf{KUKA youBot arm 1} performing different pick and place tasks.
 				\item Three objects with different masses are to be placed in three different poses.
 				\item The object poses (x, y, $\theta$) are determined by tracking ArUco markers that are placed on top of the objects by an external vision system (Microsoft LifeCam) placed above the arm's workspace.
 				\item The experiment is performed 20 times for each object-pose combination resulting in a total of 180 experimental trials.
@@ -505,21 +505,22 @@ cam.FocalMode = manual
 				\end{itemize}
 				\subsection{Scattered plots}
 				\begin{enumerate}
-				\item \textbf{Experiment: Small Marker}
+				\item \textbf{Experiment: Small Marker-} The below plot shows the combined plot (X and Y coordinates ) of pick and place of small object in three different places(straight, left and right). \\ The mean of the orientation values for each experiments (straight, left and right) is stored. The triangle in the plot is oriented by the mean orientation values.
+				
 				\begin{figure}[H]
 					\centering
 					\includegraphics[scale=0.7]{small}	
 					\caption{Scattered plot of small marker experiment}
 				\end{figure}
 				\newpage
-				\item \textbf{Experiment: Medium Marker}
+				\item \textbf{Experiment: Medium Marker-}The below plot shows the combined plot (X and Y coordinates ) of pick and place of medium mass object in three different places(straight, left and right). \\ The mean of the orientation values for each experiments (straight, left and right) is stored. The triangle in the plot is oriented by the mean orientation values.
 				\begin{figure}[H]
 					\centering
 					\includegraphics[scale=0.7]{medium}	
 					\caption{Scattered plot of medium marker experiment}
 				\end{figure}
 				\newpage
-				\item \textbf{Experiment: Large Marker}
+				\item \textbf{Experiment: Large Marker-}The below plot shows the combined plot (X and Y coordinates ) of pick and place of large mass object in three different places(straight, left and right). \\ The mean of the orientation values for each experiments (straight, left and right) is stored. The triangle in the plot is oriented by the mean orientation values.
 				\begin{figure}[H]
 					\centering
 					\includegraphics[scale=0.7]{large}	
@@ -527,26 +528,45 @@ cam.FocalMode = manual
 				\end{figure}
 				\end{enumerate}
 				\newpage
-				\subsubsection{Distribution plots}
+				\subsubsection{Distribution plots} 
+				For the obtained experimental results, a Gaussian distribution is plotted. It is observed that there are many outliers that do not belong to the distribution.\\
+				Therefore, we have used the \textbf{Chebyshev's outliers algorithm} to remove the outliers.
+				
+				The algorithm requires to set two likelihoods (pp1 and pp2). \\
+				pp1 -- likelihood of expected outliers (e.g. 0.1, 0.05 , 0.01)\\
+				pp2 -- final likelihood of real outliers (e.g. 0.01, 0.001 , 0.0001)\\
+				The pp1 and pp2 are equal to (1/sigma).\\
+				
+				Sometimes, setting pp1 and pp2 as (1/sigma) do not completely remove the outliers. Therefore, we have increased the pp1 and pp2 according to the observed outliers.
+				\newpage
 				\begin{enumerate}
-				\item Experiment: Pick and place of Small marker - Straight
+				\item Experiment: Pick and place of Small marker - Straight\\
+				X coordinate: pp1 : 0.22, pp2 : 0.22\\
+				Y coordinate: pp1 : 0.27, pp2 : 0.22 \\
+				Orientation: pp1 : 0.25, pp2 : 0.25
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.58]{small-str}	
+					\includegraphics[scale=0.56]{small-str}	
 					\caption{Distribution plot for Small marker-Straight}
 				\end{figure}
 				\newpage
-				\item Experiment: Pick and place of Small marker - Left
+				\item Experiment: Pick and place of Small marker - Left\\
+				X coordinate: pp1 : 0.1, pp2 : 0.1\\
+				Y coordinate: pp1 : 0.12, pp2 : 0.12 \\
+				Orientation: pp1 : 0.27, pp2 : 0.27
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{small-left}	
+					\includegraphics[scale=0.56]{small-left}	
 					\caption{Distribution plot for Small marker-Left}
 				\end{figure}
 				\newpage
-				\item Experiment: Pick and place of Small marker - Right
+				\item Experiment: Pick and place of Small marker - Right\\
+				X coordinate: pp1 : 0.61, pp2 : 0.61\\
+				Y coordinate: pp1 : 1.0, pp2 : 1.0 \\
+				Orientation: pp1 : 0.39, pp2 : 0.39
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{small-right}
+					\includegraphics[scale=0.56]{small-right}
 					\caption{Distribution plot for Small marker-Right}	
 				\end{figure}
 				\newpage
@@ -594,48 +614,68 @@ cam.FocalMode = manual
 				\end{figure}
 				\end{enumerate}
 				\newpage
-				\subsubsection{Accuracy and Precision}
+				\subsubsection{Analyzing the experimental results} The obtained experimental data is analyzed by calculating accuracy and precision of the used youbot arm.\\
+				\textbf{Ground truth:} Youbot Arm 1 \\ The ground-truth initial and final poses for each of the three motions with respect to the camera frame are given below. 
+				\begin{figure}[H]
+					\centering
+					\includegraphics[scale=0.4]{ground-truth}
+					\caption{Distribution plot for large marker-Right}	
+				\end{figure}
+				The Accuracy is calculated as follows,
+				$$Accuracy = (desired - actual)/desired$$ 
+				Where, \\
+				Desired = ground truth values\\
+				Actual = mean of the experiment values
 				\begin{table}[h]
 					\centering
 					\caption{Accuracy}
 					\label{accuracy}
 					\begin{tabular}{|l|l|l|l|}
 						\hline
-						Small marker/Accuracy   & X       & Y       & $\theta$ \\ \hline
-						Straight                & -0.0481 & -0.0527 & -0.2234     \\ \hline
-						Left                    & -0.0691 & -0.0842 & -0.1283     \\ \hline
-						Right                   & -0.0370 & -0.0601 & 0.0243      \\ \hline
-						Medium marker/ Accuracy & X       & Y       & $\theta$ \\ \hline
-						Straight                & -0.0144 & 0.0005  & 0.1668      \\ \hline
-						Left                    & 0.0158  & 0.0296  & 0.3889      \\ \hline
-						Right                   & -0.0080 & 0.0109  & 0.2070      \\ \hline
-						Large marker/ Accuracy  & X       & Y       & $\theta$ \\ \hline
-						Straight                & 0.0125  & 0.0551  & -0.0523     \\ \hline
-						Left                    & 0.0501  & 0.0586  & -0.1707     \\ \hline
-						Right                   & 0.0111  & 0.0444  & 0.3372      \\ \hline
+						\textbf{Small marker}   & X(cm)     & Y(cm)       & $\theta$(radians) \\ \hline
+						Straight                & -0.05 & -0.05 & -0.22     \\ \hline
+						Left                    & -0.07 & -0.08 & -0.13     \\ \hline
+						Right                   & -0.03 & -0.06 & 0.024      \\ \hline
+						\textbf{Medium marker}	&  &  & \\ \hline
+						Straight                & -0.01 & 0.00  & 0.16      \\ \hline
+						Left                    & 0.01  & 0.02  & 0.38      \\ \hline
+						Right                   & 0.00 & 0.01  & 0.20      \\ \hline
+						\textbf{Large marker}	 & &       & \\ \hline
+						Straight                & 0.01  & 0.05 & -0.05     \\ \hline
+						Left                    & 0.05  & 0.05  & -0.17     \\ \hline
+						Right                   & 0.01  & 0.04  & 0.33      \\ \hline
 					\end{tabular}
 				\end{table}
+				\newpage
 				
+				\textbf{Precision of the experimental values}
+				The following table displays the precision values for different objects. 
 				\begin{table}[h]
 					\centering
-					\caption{Precision}
+					\caption{Precision(Mean $\pm$ variance)}
 					\label{precision}
 					\begin{tabular}{|l|l|l|l|}
 						\hline
-						Small marker/Precision   & X       & Y       & $\theta$ \\ \hline
+						\textbf{Small marker}   & X(cm)     & Y(cm)    & $\theta$(radians) \\ \hline
 						Straight                & -91.28 $\pm$ 2.22 & -75.28 $\pm$ 0.73 & 1.86 $\pm$ 0.73  \\ \hline
 						Left                    & -48.84 $\pm$ 0.99 & -49.14 $\pm$ 0.78 & 1.00 $\pm$0.17    \\ \hline
 						Right                   & -116.44$\pm$1.61 & -75.09 $\pm$ 0.96 & 1.73 $\pm$0.12      \\ \hline
-						Medium marker/ Precision & X       & Y       & $\theta$ \\ \hline
+						\textbf{Medium marker} &        &       &  \\ \hline
 						Straight                & -88.15$\pm$1.68 & -71.27$\pm$1.09  & 1.24$\pm$1.12      \\ \hline
 						Left                    & -44.76$\pm$1.95  & -43.70$\pm$1.14  & 0.63$\pm$0.64      \\ \hline
 						Right                   & -113.04$\pm$2.54 & -69.81$\pm$1.64  & 1.47$\pm$0.60      \\ \hline
-						Large marker/ Precision  & X       & Y       & $\theta$ \\ \hline
+						\textbf{Large marker}  &        &       & \\ \hline
 						Straight                & -85.81$\pm$3.07  & -67.58$\pm$ 10.84  & 1.53$\pm$0.42    \\ \hline
 						Left                    & -43.30$\pm$1.98  & -42.50$\pm$1.60  & 1.06$\pm$0.56    \\ \hline
 						Right                   & -110.90$\pm$2.84  & -67.58$\pm$1.00  & 1.33$\pm$0.56      \\ \hline
 					\end{tabular}
 				\end{table}
+				
+				\textbf{Observations:} \begin{itemize}
+					\item From the above table it is observed that the precision has decreased greatly with the increase in the mass of the object.
+					\item The precision for small marker (Y-coordinate) is $\pm$ 0.73 cm, for the medium mass object it is $\pm$ 1.09 cm and for the large mass object it has increased to $\pm$ 10.84 cm.
+					\item The possible cause for this significant decrease in precision is; the arm grasps the object at certain height (say $h$) which is same for all the object sizes. Hence the object with greater length wobbles during the placement. 
+				\end{itemize}
 				\newpage
 				\section{Appendix}
 				\subsection{Softwares used}
