@@ -529,18 +529,16 @@ cam.FocalMode = manual
 				\end{enumerate}
 				\newpage
 				\subsubsection{Distribution plots} 
-				For the obtained experimental results, a Gaussian distribution is plotted. It is observed that there are many outliers that do not belong to the distribution.\\
-				Therefore, we have used the \textbf{Chebyshev's outliers algorithm} to remove the outliers.
+				For the obtained experimental results, a Gaussian distribution is plotted. It is observed that there are many outliers that do not belong to the distribution. Therefore, we have used the \textbf{Chebyshev's outliers algorithm} to remove the outliers.\\
+				The algorithm requires to set two likelihoods (pp1 and pp2):\begin{itemize}
+					\item 	pp1 -- likelihood of expected outliers (e.g. 0.1, 0.05 , 0.01)
+					\item pp2 -- final likelihood of real outliers (e.g. 0.01, 0.001 , 0.0001)
+				\end{itemize}
 				
-				The algorithm requires to set two likelihoods (pp1 and pp2). \\
-				pp1 -- likelihood of expected outliers (e.g. 0.1, 0.05 , 0.01)\\
-				pp2 -- final likelihood of real outliers (e.g. 0.01, 0.001 , 0.0001)\\
-				The pp1 and pp2 are equal to (1/sigma).\\
-				
-				Sometimes, setting pp1 and pp2 as (1/sigma) do not completely remove the outliers. Therefore, we have increased the pp1 and pp2 according to the observed outliers.
+				The two likelihood values are initially set to $\frac{1}{sigma}$. However, these values sometimes do not remove the outliers properly (either too many outliers are removed or just a few of them ), therefore the value is changed accordingly to fit the best distribution.		
 				\newpage
 				\begin{enumerate}
-				\item Experiment: Pick and place of Small marker - Straight\\
+				\item\textbf{ Experiment: Pick and place of Small marker - Straight}\\
 				X coordinate: pp1 : 0.22, pp2 : 0.22\\
 				Y coordinate: pp1 : 0.27, pp2 : 0.22 \\
 				Orientation: pp1 : 0.25, pp2 : 0.25
@@ -570,46 +568,64 @@ cam.FocalMode = manual
 					\caption{Distribution plot for Small marker-Right}	
 				\end{figure}
 				\newpage
-				\item Experiment: Pick and place of Medium marker - Straight
+				\item \textbf{Experiment: Pick and place of Medium marker - Straight}\\
+				X coordinate: pp1 : 0.23, pp2 : 0.23\\
+				Y coordinate: pp1 : 0.23, pp2 : 0.23 \\
+				Orientation: pp1 : 0.39, pp2 : 0.39
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{medium-straight}
+					\includegraphics[scale=0.56]{medium_straight}
 					\caption{Distribution plot for medium marker-Straight}	
 				\end{figure}
 				\newpage
 				\item Experiment: Pick and place of Medium marker - Left
+				X coordinate: pp1 : 0.51, pp2 : 0.51\\
+				Y coordinate: pp1 : 0.51, pp2 : 0.51 \\
+				Orientation: pp1 : 0.51, pp2 : 0.51
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{medium-left}
+					\includegraphics[scale=0.56]{medium-left}
 					\caption{Distribution plot for medium marker-Left}	
 				\end{figure}
 				\newpage
-				\item Experiment: Pick and place of Medium marker - Right
+				\item Experiment: Pick and place of Medium marker - Right\\
+				X coordinate: pp1 : 0.39, pp2 : 0.39\\
+				Y coordinate: pp1 : 0.39, pp2 : 0.39 \\
+				Orientation: pp1 : 2.21, pp2 : 2.21
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{medium-right}
+					\includegraphics[scale=0.56]{medium-right}
 					\caption{Distribution plot for medium marker-Right}	
 				\end{figure}
 				
 				\newpage
-				\item Experiment: Pick and place of large marker - Straight
+				\item Experiment: Pick and place of large marker - Straight\\
+				X coordinate: pp1 : 0.32, pp2 : 0.32\\
+				Y coordinate: pp1 : 0.32, pp2 : 0.32 \\
+				Orientation: pp1 : 0.32, pp2 : 0.32
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{large-str}	
+					\includegraphics[scale=0.56]{large-str}	
 					\caption{Distribution plot for large marker-Straight}
 				\end{figure}
 				\newpage
-				\item Experiment: Pick and place of large marker - Left
+				\item Experiment: Pick and place of large marker - Left\\
+				X coordinate: pp1 : 0.5, pp2 : 0.5\\
+				Y coordinate: pp1 : 0.5, pp2 : 0.5 \\
+				Orientation: pp1 : 0.5, pp2 : 0.5
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{large-left}
+					\includegraphics[scale=0.56]{large-left}
 					\caption{Distribution plot for large marker-Left}	
 				\end{figure}
 				\newpage
-				\item Experiment: Pick and place of large marker - Right
+				\item Experiment: Pick and place of large marker - Right\\
+				X coordinate: pp1 : 0.1, pp2 : 0.1\\
+				Y coordinate: pp1 : 0.1, pp2 : 0.1 \\
+				Orientation: pp1 : 0.59, pp2 : 0.59
 				\begin{figure}[H]
 					\centering
-					\includegraphics[scale=0.6]{large-right}
+					\includegraphics[scale=0.56]{large-right}
 					\caption{Distribution plot for large marker-Right}	
 				\end{figure}
 				\end{enumerate}
